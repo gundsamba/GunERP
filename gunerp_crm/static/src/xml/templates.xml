@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="gunerp_template" xml:space="preserve">
+    <t t-name="ClientDetails">
+        <!-- <t t-jquery="." t-operation="replace"> -->
+          <section class='client-details'>
+            <div class='client-picture'>
+                <img t-att-src='widget.partner_icon_url(partner.id)' />
+            </div>
+            <div class='client-name'><t t-esc='partner.name' /></div>
+            <div class='edit-buttons'>
+                <div class='button edit'><i class='fa fa-pencil-square' /></div>
+            </div>
+            <div class='client-details-box clearfix'>
+                <div class='client-details-left'>
+                  <div class='client-detail'>
+                      <span class='label'>Хүйс</span>
+                      <t t-if='partner.address'>
+                          <span class='detail client-gender'><t t-esc='partner.gender' /></span>
+                      </t>
+                      <t t-if='!partner.address'>
+                          <span class='detail client-gender empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>РД</span>
+                      <t t-if='partner.id_card'>
+                          <span class='detail client-id_card'><t t-esc='partner.id_card' /></span>
+                      </t>
+                      <t t-if='!partner.id_card'>
+                          <span class='detail client-id_card empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>Хаяг</span>
+                      <t t-if='partner.address'>
+                          <span class='detail client-address'><t t-esc='partner.address' /></span>
+                      </t>
+                      <t t-if='!partner.address'>
+                          <span class='detail client-address empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>Карт/д</span>
+                      <t t-if='partner.barcode'>
+                          <span class='detail client-id'><t t-esc='partner.barcode'/></span>
+                      </t>
+                      <t t-if='!partner.barcode'>
+                          <span class='detail client-id empty'>N/A</span>
+                      </t>
+                  </div>
+                </div>
+                <div class='client-details-right'>
+                  <div class='client-detail'>
+                      <span class='label'>Гар утас</span>
+                      <t t-if='partner.mobile'>
+                          <span class='detail client-mobile'><t t-esc='partner.mobile' /></span>
+                      </t>
+                      <t t-if='!partner.mobile'>
+                          <span class='detail client-mobile empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>Имэйл</span>
+                      <t t-if='partner.email'>
+                          <span class='detail client-email'><t t-esc='partner.email' /></span>
+                      </t>
+                      <t t-if='!partner.email'>
+                          <span class='detail client-email empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>Фэйсбүүк</span>
+                      <t t-if='partner.facebook'>
+                          <span class='detail client-facebook'><t t-esc='partner.facebook' /></span>
+                      </t>
+                      <t t-if='!partner.facebook'>
+                          <span class='detail client-facebook empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div class='client-detail'>
+                      <span class='label'>Карт дуусах огноо</span>
+                      <t t-if='partner.expiry_date'>
+                          <span class='detail client-expiry_date'><t t-esc='partner.expiry_date' /></span>
+                      </t>
+                      <t t-if='!partner.expiry_date'>
+                          <span class='detail client-expiry_date empty'>N/A</span>
+                      </t>
+                  </div>
+                  <div t-attf-class='client-detail #{widget.pos.pricelists.length &lt;= 1 ? "oe_hidden" : ""}'>
+                      <span class='label'>Pricelist</span>
+                      <t t-if='partner.property_product_pricelist'>
+                          <span class='detail property_product_pricelist'><t t-esc='partner.property_product_pricelist[1]'/></span>
+                      </t>
+                      <t t-if='!partner.property_product_pricelist'>
+                          <span class='detail property_product_pricelist empty'>N/A</span>
+                      </t>
+                  </div>
+                </div>
+            </div>
+          </section>
+        <!-- </t> -->
+      </t>
+</templates>

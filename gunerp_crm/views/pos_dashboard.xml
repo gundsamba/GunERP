@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="gunerp_crm.action_window_pos_dashboard">
+            <field name="name">gunerp_crm.pos_dashboard.action</field>
+            <field name="res_model">pos.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <!-- <field name="search_view_id" ref="gunerp_crm.view_search_customer"/>
+            <field name="context">{'search_default_customer':1}</field> -->
+        </record>
+    </data>
+</odoo>

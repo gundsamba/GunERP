@@ -1,0 +1,117 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="gunerp_crm.view_kanban_settings_user">
+      <field name="name">gunerp_crm.user.kanban</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <kanban class="o_kanban_mobile">
+          <field name="id"/>
+          <field name="name"/>
+          <field name="login"/>
+          <field name="lang"/>
+          <field name="active"/>
+          <field name="login_date"/>
+          <templates>
+              <t t-name="kanban-box">
+                  <div t-attf-class="oe_kanban_global_click">
+                      <div class="o_kanban_image">
+                          <img t-att-src="kanban_image('res.users', 'image_medium', record.id.value)"/>
+                      </div>
+                      <div class="oe_kanban_details">
+                          <ul>
+                              <li class="text-success pull-right mb4" t-if="record.active.raw_value"><i class="fa fa-circle" aria-hidden="true"/></li>
+                              <li class="text-danger pull-right mb4" t-if="!record.active.raw_value"><i class="fa fa-circle"/></li>
+                              <li class="mb4">
+                                  <strong><field name="name"/></strong>
+                              </li>
+                              <li class="badge pull-right mb4" t-if="record.lang.raw_value"><field name="lang"/></li>
+                              <li class="mb4" t-if="record.login.raw_value"><i class="fa fa-envelope"/> <field name="login"/></li>
+                          </ul>
+                      </div>
+                  </div>
+              </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="gunerp_crm.view_tree_settings_user">
+      <field name="name">gunerp_crm.user.tree</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" string="Нэр"/>
+          <field name="login" string="Нэвтрэх и-мэйл"/>
+          <field name="lang" string="Хэл"/>
+          <field name="login_date" string="Сүүлд холбогдсон хугацаа"/>
+          <field name="partner_id"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="gunerp_crm.view_form_settings_user">
+      <field name="name">gunerp_crm.user.form</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <form string="Системийн хэрэглэгч">
+          <header>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <field name="id" invisible="1"/>
+            <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+            <div class="oe_title">
+                <label for="name" class="oe_edit_only" string="Нэр"/>
+                <h1><field name="name" required="1"/></h1>
+                <field name="email" invisible="1"/>
+                <label for="login" class="oe_edit_only" string="Имэйл хаяг"/>
+                <h2>
+                    <field name="login" placeholder="email@yourcompany.com"/>
+                </h2>
+                <label for="company_id" class="oe_edit_only" groups="base.group_multi_company"/>
+                <field name="company_id" context="{'user_preference': 0}" groups="base.group_multi_company"/>
+            </div>
+            <group>
+                <field name="mobile" widget="phone" string="Гар утас"/>
+            </group>
+            <notebook colspan="4">
+              <page name="access_rights" string="Системийн эрх">
+                  <group col="4">
+                    <separator colspan="4" string="CRM систем"/>
+                    <field name="in_group_53"/>
+                    <field name="in_group_57"/>
+                    <field name="in_group_54"/>
+                    <field name="in_group_55"/>
+                    <field name="in_group_56"/>
+                  </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="gunerp_crm.action_window_settings_user">
+      <field name="name">gunerp_crm.user.action</field>
+      <field name="res_model">res.users</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="context">{'is_customer':False}</field>
+    </record>
+    <record model="ir.actions.act_window.view" id="gunerp_crm.action_window_settings_user_kanban">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="gunerp_crm.view_kanban_settings_user"/>
+        <field name="act_window_id" ref="gunerp_crm.action_window_settings_user"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="gunerp_crm.action_window_settings_user_tree">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="gunerp_crm.view_tree_settings_user"/>
+        <field name="act_window_id" ref="gunerp_crm.action_window_settings_user"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="gunerp_crm.action_window_settings_user_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="gunerp_crm.view_form_settings_user"/>
+        <field name="act_window_id" ref="gunerp_crm.action_window_settings_user"/>
+    </record>
+  </data>
+</odoo>

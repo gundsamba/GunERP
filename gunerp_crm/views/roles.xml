@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="0">
+    <!-- Adding custom category -->
+    <record model="ir.module.category" id="gunerp_roles">
+      <field name="name">GunERP Roles</field>
+      <field name="description">GunERP System Users</field>
+    </record>
+
+    <!-- Add TGL group with manager, se and proper -->
+    <record model="res.groups" id="crm_user">
+      <field name="name">CRM Admin</field>
+      <field name="category_id" ref="gunerp_crm.gunerp_roles"/>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+    </record>
+    <record model="res.groups" id="settings_user">
+      <field name="name">Тохиргоо</field>
+      <field name="category_id" ref="gunerp_crm.gunerp_roles"/>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+    </record>
+    <record model="res.groups" id="customer_register">
+      <field name="name">Худалдан авагчийн бүртгэл</field>
+      <field name="category_id" ref="gunerp_crm.gunerp_roles"/>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+      <!-- <field name="implied_ids" eval="[(4, ref('gunerp_crm.customer_user'))]"/> -->
+    </record>
+    <record model="res.groups" id="customer_pos">
+      <field name="name">Худалдан авагчийн худалдан авалт</field>
+      <field name="category_id" ref="gunerp_crm.gunerp_roles"/>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+      <!-- <field name="implied_ids" eval="[(4, ref('gunerp_crm.customer_user'))]"/> -->
+    </record>
+    <record model="res.groups" id="crm_reports">
+      <field name="name">Тайлан, лавлагаа</field>
+      <field name="category_id" ref="gunerp_crm.gunerp_roles"/>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+      <!-- <field name="implied_ids" eval="[(4, ref('gunerp_crm.customer_user'))]"/> -->
+    </record>
+  </data>
+</odoo>

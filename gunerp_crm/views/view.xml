@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+    <menuitem name="CRM" id="gunerp_crm.menu_root" groups="gunerp_crm.crm_user,gunerp_crm.settings_user,gunerp_crm.customer_register,gunerp_crm.crm_reports"/>
+<!-- CRM -->
+    <menuitem name="Худалдан авагч" id="gunerp_crm.customer" parent="gunerp_crm.menu_root" sequence="1" action="gunerp_crm.action_window_customer" groups="gunerp_crm.crm_user,gunerp_crm.customer_register"/>
+    <menuitem name="Тайлан, лавлагаа" id="gunerp_crm.menu_reports" parent="gunerp_crm.menu_root" sequence="1" groups="gunerp_crm.crm_user,gunerp_crm.crm_reports"/>
+    <menuitem name="Тохиргоо" id="gunerp_crm.menu_settings" parent="gunerp_crm.menu_root" sequence="1" groups="gunerp_crm.crm_user,gunerp_crm.settings_user"/>
+    <menuitem name="Хэрэглэгч" id="gunerp_crm.menu_settings_user" parent="gunerp_crm.menu_settings" sequence="1" action="gunerp_crm.action_window_settings_user" groups="gunerp_crm.crm_user,gunerp_crm.settings_user"/>
+    <menuitem name="Компанийн мэдээлэл" id="gunerp_crm.menu_settings_company" parent="gunerp_crm.menu_settings" sequence="1" action="gunerp_crm.action_window_settings_company" groups="gunerp_crm.crm_user,gunerp_crm.settings_user"/>
+
+
+    <menuitem name="POS" id="gunerp_crm.pos_menu_root" groups="gunerp_crm.crm_user,gunerp_crm.customer_pos"/>
+<!-- POS -->
+    <menuitem name="Хянах самбар" id="gunerp_crm.pos_dashboard" parent="gunerp_crm.pos_menu_root" sequence="1" action="gunerp_crm.action_window_pos_dashboard" groups="gunerp_crm.crm_user,gunerp_crm.customer_pos"/>
+  </data>
+</odoo>
